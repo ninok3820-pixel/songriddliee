@@ -12,35 +12,39 @@ export function meta() {
 
 type Song = {
   description: string;
-  options: string;
+  options: string[];
   answer: number;
   embedSrc: string;
 };
 
-const SONG_SETS: { date: string; songs: Song } = [
+const SONG_SETS: { date: string; songs: Song[] }[] = [
   {
     date: "2026-11-23",
     songs: [
       {
-        description: "Рэп-трек про путь от домашних записей до больших концертов: в тексте есть отсылка к совету выкинуть микрофон, а по звуку — резкий переход к мощному дропу",
-        options: ["VILLIAN, madk1d — ДИНАСТИЯ", "Aarne, Toxi\$ — KM", "NEXTIME, Даник — КИС Ю"],
+        description:
+          "Рэп-трек про путь от домашних записей до больших концертов: в тексте есть отсылка к совету выкинуть микрофон, а по звуку — резкий переход к мощному дропу",
+        options: ["VILLIAN, madk1d — ДИНАСТИЯ", "Aarne, Toxi$ — KM", "NEXTIME, Даник — КИС Ю"],
         answer: 0,
         embedSrc: "https://music.yandex.ru/iframe/album/43177815/track/153919218",
       },
       {
-        description: "Трэп-трек про безудержную вечеринку: герой перечисляет десятки видов алкоголя, устраивает дикие тусовки, а атмосфера — будто ночь никогда не закончится. В припеве постоянно звучит призыв “давай напьёмся” — и это становится главным рефреном трека.",
+        description:
+          "Трэп-трек про безудержную вечеринку: герой перечисляет десятки видов алкоголя, устраивает дикие тусовки, а атмосфера — будто ночь никогда не закончится. В припеве постоянно звучит призыв “давай напьёмся” — и это становится главным рефреном трека.",
         options: ["урал гайсин — хочу быть с ней и всё", "Тимати — Moscow In Da Club", "Yanix — Алкоголь"],
         answer: 2,
         embedSrc: "https://music.yandex.ru/iframe/album/15510272/track/82789853",
       },
       {
-        description: "Песня-обещание: в центре сюжета — готовность на любые жертвы ради любви, а настроение трека такое, будто это тост на большой свадьбе. Ритм бодрый, припев цепкий, атмосфера — праздничная и немного драматичная одновременно.",
+        description:
+          "Песня-обещание: в центре сюжета — готовность на любые жертвы ради любви, а настроение трека такое, будто это тост на большой свадьбе. Ритм бодрый, припев цепкий, атмосфера — праздничная и немного драматичная одновременно.",
         options: ["Лолита — Шпилька-каблучок", "Konfuz — Кайф ты поймала", "Мурат Тхагалегов — Калым"],
         answer: 2,
         embedSrc: "https://music.yandex.ru/iframe/album/25480090/track/32801075",
       },
       {
-        description: "Танцевальный трек, где главная мысль звучит как манифест: различия не мешают, если внутри одна и та же энергия. Бит качает, вокал многослойный, а текст работает как приглашение к общему движению — будто это саундтрек к большому флешмобу.",
+        description:
+          "Танцевальный трек, где главная мысль звучит как манифест: различия не мешают, если внутри одна и та же энергия. Бит качает, вокал многослойный, а текст работает как приглашение к общему движению — будто это саундтрек к большому флешмобу.",
         options: ["Натали — О боже, какой мужчина", "Quest Pistols Show — Непохожие", "RaiM — Двигаться"],
         answer: 1,
         embedSrc: "https://music.yandex.ru/iframe/album/3414129/track/28535749",
@@ -51,25 +55,29 @@ const SONG_SETS: { date: string; songs: Song } = [
     date: "2026-11-24",
     songs: [
       {
-        description: "Трек с плотным ритмом: припев построен на звукоподражании, которое стало интернет‑трендом, а куплеты обыгрывают типичные летние сюжеты — прогулки, танцы, неожиданные повороты.",
+        description:
+          "Трек с плотным ритмом: припев построен на звукоподражании, которое стало интернет‑трендом, а куплеты обыгрывают типичные летние сюжеты — прогулки, танцы, неожиданные повороты.",
         options: ["MOT — День и Ночь", "Мэвл — Холодок", "БОРИК — ТЫЦН-ДЫЦН"],
         answer: 2,
         embedSrc: "https://music.yandex.ru/iframe/album/38385908/track/143326199",
       },
       {
-        description: "В этом треке вся драма держится на одном слове из припева — его повторяют как заклинание. Герой обещает исполнить любое желание, если только его не отпустят. Атмосфера — влюблённость, ночь и желание остановить время.",
+        description:
+          "В этом треке вся драма держится на одном слове из припева — его повторяют как заклинание. Герой обещает исполнить любое желание, если только его не отпустят. Атмосфера — влюблённость, ночь и желание остановить время.",
         options: ["Тима Белорусских — Витаминка", "Дима Билан — Держи", "Блестящие — Восточные сказки feat. Arash"],
         answer: 1,
         embedSrc: "https://music.yandex.ru/iframe/album/17378048",
       },
       {
-        description: "Трек-приглашение на танцпол: вся драма здесь не в словах, а в ритме, который заставляет двигаться. Сюжет простой: не думай, не переживай, просто танцуй. Звучание — узнаваемый поп-данс с запоминающимся хуком, который моментально цепляет и остаётся в голове надолго.",
+        description:
+          "Трек-приглашение на танцпол: вся драма здесь не в словах, а в ритме, который заставляет двигаться. Сюжет простой: не думай, не переживай, просто танцуй. Звучание — узнаваемый поп-данс с запоминающимся хуком, который моментально цепляет и остаётся в голове надолго.",
         options: ["Артур Пирожков — Зацепила", "Руки Вверх! — Танцуй", "Galibri & Mavik — Федерико Феллини"],
         answer: 1,
         embedSrc: "https://music.yandex.ru/iframe/album/7653890/track/53516751",
       },
       {
-        description: "В этом треке любовь сравнивают с опасной игрой, а ключевое слово в припеве звучит как меткое определение героини: будто это её титул, который все повторяют хором. Настроение — игривое, дерзкое, с намёком на то, что сопротивляться бесполезно.",
+        description:
+          "В этом треке любовь сравнивают с опасной игрой, а ключевое слово в припеве звучит как меткое определение героини: будто это её титул, который все повторяют хором. Настроение — игривое, дерзкое, с намёком на то, что сопротивляться бесполезно.",
         options: ["5sta Family — Снова вместе", "Ёлка — На большом воздушном шаре", "ЕГОР КРИД — Сердцеедка"],
         answer: 2,
         embedSrc: "https://music.yandex.ru/iframe/album/8045541/track/55233151",
@@ -113,9 +121,8 @@ export default function HomeRoute() {
   const cardRef = useRef<HTMLElement>(null);
 
   const today = now === null ? null : moscowDate(now);
-  const songs = SONG_SETS.find((set) => set.date === today)?.songs ?? ;
-  
-  // Вычисляем состояние из progress
+  const songs = SONG_SETS.find((set) => set.date === today)?.songs ?? [];
+
   const picked = progress?.picked ?? null;
   const song = progress && today !== null ? songs[progress.index] : undefined;
   const correct = song !== undefined && picked !== null && picked === song.answer;
@@ -125,7 +132,7 @@ export default function HomeRoute() {
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, );
+  }, []);
 
   useEffect(() => {
     if (today === null) return;
@@ -176,7 +183,6 @@ export default function HomeRoute() {
     setProgress({ ...progress, index: progress.index + 1, picked: null });
   }
 
-  // --- ИСПРАВЛЕННЫЙ JSX: чёткие условия, гарантированные закрывающие теги ---
   return (
     <div className="isolate flex min-h-screen flex-col gap-12 bg-[#161616] text-white">
       <CoverBackground />
@@ -192,14 +198,12 @@ export default function HomeRoute() {
 
       <section
         ref={cardRef}
-        className={`mx-auto flex w-full max-w-[520px] flex-col items-center gap-4 rounded-[35px] border-2 border-[#91f3d9] bg-black/40 p-5 shadow-[0_0_12px_#91f3d9] backdrop-blur-xl transition-[margin] duration-500 ease-out \${picked === null ? "mt-28" : "-mt-10"}`}
+        className={`mx-auto flex w-full max-w-[520px] flex-col items-center gap-4 rounded-[35px] border-2 border-[#91f3d9] bg-black/40 p-5 shadow-[0_0_12px_#91f3d9] backdrop-blur-xl transition-[margin] duration-500 ease-out ${picked === null ? "mt-28" : "-mt-10"}`}
       >
-        {/* Сценарий 1: Нет песен на сегодня */}
         {today !== null && songs.length === 0 && (
           <p className="py-10 text-center text-lg">Новые песни скоро появятся</p>
         )}
 
-        {/* Сценарий 2: Пройдено всё */}
         {progress?.done && (
           <div className="flex flex-col items-center gap-4 py-10">
             <p className="text-xl">Угадано песен: {progress.score} из {songs.length}</p>
@@ -226,7 +230,6 @@ export default function HomeRoute() {
           </div>
         )}
 
-        {/* Сценарий 3: Игра в процессе */}
         {progress && song && !progress.done && (
           <>
             <p className="text-center text-base text-white/90">
@@ -249,7 +252,7 @@ export default function HomeRoute() {
                   <button
                     key={o}
                     onClick={() => pick(i)}
-                    className={`rounded-[15px] px-4 py-3 text-left text-black shadow-[0_-6px_14px_-2px_rgba(145,243,217,0.9),inset_0_2px_0_rgba(145,243,217,0.7)] transition duration-200 ease-out \${state}`}
+                    className={`rounded-[15px] px-4 py-3 text-left text-black shadow-[0_-6px_14px_-2px_rgba(145,243,217,0.9),inset_0_2px_0_rgba(145,243,217,0.7)] transition duration-200 ease-out ${state}`}
                   >
                     {o}
                   </button>
@@ -259,7 +262,7 @@ export default function HomeRoute() {
 
             {picked !== null && (
               <>
-                <p className={`mt-4 text-xl font-bold \${correct ? "text-[#98ff98]" : "text-[#FB6464]"}`}>
+                <p className={`mt-4 text-xl font-bold ${correct ? "text-[#98ff98]" : "text-[#FB6464]"}`}>
                   {correct ? "Правильно!" : "Неправильно!"}
                 </p>
                 <div className="w-full max-w-[470px] overflow-hidden rounded-[20px]">
