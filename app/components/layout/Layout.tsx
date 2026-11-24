@@ -15,7 +15,7 @@ interface LayoutProps {
  * (position="right", a stable storageKey, browserTabId={TAB_ID} from
  * "@/lib/tab-id"). See the `agent-native-toolkit` skill for the full pattern.
  */
-export function Layout({ children }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <HeaderActionsProvider>
       <div className="flex h-screen w-full flex-col overflow-hidden bg-background text-foreground">
