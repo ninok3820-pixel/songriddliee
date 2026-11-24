@@ -2,8 +2,6 @@
 import { json } from "@react-router/dev/runtime";
 
 export async function loader() {
-  // Здесь можно добавить логику аутентификации
-  // Например, проверить сессию или вернуть ошибку
   return json({ message: "Agent Native Auth Session" });
 }
 
