@@ -193,7 +193,7 @@ export default function HomeRoute() {
           </Link>
         </div>
       </header>
-      <section ref={cardRef} ...
+      <section
         ref={cardRef}
         className={`mx-auto flex w-full max-w-[520px] flex-col items-center gap-4 rounded-[35px] border-2 border-[#91f3d9] bg-black/40 p-5 shadow-[0_0_12px_#91f3d9] backdrop-blur-xl transition-[margin] duration-500 ease-out ${picked === null ? "mt-28" : "-mt-10"}`}
       >
