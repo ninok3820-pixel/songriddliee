@@ -133,9 +133,8 @@ export default function HomeRoute() {
   const cardRef = useRef<HTMLElement>(null);
 
   const today = now === null ? null : moscowDate(now);
+  const songs = SONG_SETS.find((set) => set.date === today)?.songs ?? ;
   const songs = SONG_SETS.find((set) => set.date === today)?.songs ?? [];
-  const song = progress && !progress.done ? songs[progress.index] : undefined;
-  const picked = progress?.picked ?? null;
   const correct = song !== undefined && picked === song.answer;
 
   useEffect(() => {
@@ -143,15 +142,27 @@ export default function HomeRoute() {
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, []);
+  }, );
 
   useEffect(() => {
     if (today === null) return;
-    setProgress((prev) => (prev?.date === today ? prev : loadProgress(today)));
+    const fresh: Progress = { date: today, index: 0, picked: null, score: 0, done: false };
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) {
+        setProgress(fresh);
+        return;
+      }
+      const parsed = JSON.parse(saved) as Progress;
+      setProgress(parsed.date === today ? parsed : fresh);
+    } catch {
+      setProgress(fresh);
+    }
   }, [today]);
-
   useEffect(() => {
-    if (progress) localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    if (progress) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    }
   }, [progress]);
 
   useEffect(() => {
