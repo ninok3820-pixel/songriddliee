@@ -2,22 +2,22 @@ import { agentNative } from "@agent-native/core/vite";
 import { reactRouter } from "@react-router/dev/vite";
 import { defineConfig } from "vite";
 
-const reactRouterPlugins = reactRouter as unknown as () => any[];
+const reactRouterPlugins = reactRouter as unknown as (options?: unknown) => any[];
 const agentNativePlugins = agentNative as unknown as (
   options?: Parameters<typeof agentNative>[0],
 ) => any[];
 export default defineConfig({
   optimizeDeps: {
     entries: [
-      "app/entry.client.tsx",
-      "app/root.tsx",
-      "app/components/layout/{Layout,Sidebar}.tsx",
-      "app/components/chat/ChatRouteContent.tsx",
-      "app/routes/{home,chat.$threadId}.tsx",
-    ],
-  },
+        "./entry.client.tsx",
+        "./root.tsx",
+        "./components/layout/{Layout,Sidebar}.tsx",
+        "./components/chat/ChatRouteContent.tsx",
+        "./routes/home.chat.$threadId.tsx",
+      ],
+    },
   plugins: [
-    ...reactRouterPlugins(),
+    ...reactRouterPlugins({ appDirectory: "." }),
     ...agentNativePlugins({
       ssrStubs: ["shiki"],
     }),
