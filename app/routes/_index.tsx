@@ -134,14 +134,18 @@ export default function HomeRoute() {
 
   const today = now === null ? null : moscowDate(now);
   const songs = SONG_SETS.find((set) => set.date === today)?.songs ?? [];
-  const correct = song !== undefined && picked === song.answer;
+
+  // >>> ФИКС: объявляем song, picked и correct, которых не было в коде
+  const picked = progress?.picked ?? null;
+  const song = progress && today !== null ? songs[progress.index] : undefined;
+  const correct = song !== undefined && picked !== null && picked === song.answer;
 
   useEffect(() => {
     const tick = () => setNow(Date.now());
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, );
+  }, []);
 
   useEffect(() => {
     if (today === null) return;
@@ -158,6 +162,7 @@ export default function HomeRoute() {
       setProgress(fresh);
     }
   }, [today]);
+
   useEffect(() => {
     if (progress) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
@@ -331,4 +336,3 @@ export default function HomeRoute() {
     </div>
   );
 }
-// redeploy trigger
