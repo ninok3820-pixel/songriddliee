@@ -133,7 +133,6 @@ export default function HomeRoute() {
   const cardRef = useRef<HTMLElement>(null);
 
   const today = now === null ? null : moscowDate(now);
-  const songs = SONG_SETS.find((set) => set.date === today)?.songs ?? ;
   const songs = SONG_SETS.find((set) => set.date === today)?.songs ?? [];
   const correct = song !== undefined && picked === song.answer;
 
