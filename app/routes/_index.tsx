@@ -193,7 +193,7 @@ export default function HomeRoute() {
           </Link>
         </div>
       </header>
-      <main
+      <section ref={cardRef} ...
         ref={cardRef}
         className={`mx-auto flex w-full max-w-[520px] flex-col items-center gap-4 rounded-[35px] border-2 border-[#91f3d9] bg-black/40 p-5 shadow-[0_0_12px_#91f3d9] backdrop-blur-xl transition-[margin] duration-500 ease-out ${picked === null ? "mt-28" : "-mt-10"}`}
       >
@@ -301,7 +301,7 @@ export default function HomeRoute() {
             <p className="text-sm text-white/80">Угадано песен: {progress.score}</p>
           </>
         ) : null}
-      </main>
+      </section>
 
       <div className="relative z-10 mx-auto mt-auto flex w-[90%] flex-col rounded-[35px] bg-[#161616]/85 pt-4 pb-14 backdrop-blur-md [mask-image:radial-gradient(ellipse_80%_90%_at_center,black_60%,transparent_100%)]">
         <div className="flex px-6 pt-9">
