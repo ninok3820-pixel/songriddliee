@@ -18,6 +18,8 @@
     "agent-native:doctor": "agent-native doctor"
   },
   "dependencies": {
+    "b2": "03 0.1",
+    "@react-router/node": "^8.1.0",
     "@agent-native/agentkit": "0.226.0",
     "@agent-native/core": "0.226.0",
     "@agent-native/otel": "0.1.35",
